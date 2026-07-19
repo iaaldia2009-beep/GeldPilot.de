@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Finanzrechner: Budget & Zinseszins — GeldPilot.de</title>
+<meta name="description" content="Kostenlose interaktive Rechner: 50-30-20-Budgetrechner und Zinseszinsrechner für deine Geldanlage.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Finanzrechner: Budget & Zinseszins — GeldPilot.de">
+<meta property="og:description" content="Kostenlose interaktive Rechner: 50-30-20-Budgetrechner und Zinseszinsrechner für deine Geldanlage.">
+<meta property="og:url" content="https://finanziq.github.io/GeldPilot.de/rechner.html">
+<meta property="og:locale" content="de_DE">
+<link rel="canonical" href="https://finanziq.github.io/GeldPilot.de/rechner.html">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="stylesheet" href="style.css">
+<style>
+  .calc-box { background: #fff; border: 1px solid var(--line); border-radius: 3px; padding: 1.8rem; margin: 1.5rem 0 3rem; }
+  .calc-row { display: flex; flex-wrap: wrap; gap: 1rem; margin-bottom: 1.2rem; }
+  .calc-field { flex: 1; min-width: 180px; }
+  .calc-field label { display: block; font-family: 'IBM Plex Mono', monospace; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--slate); margin-bottom: 0.4rem; }
+  .calc-field input {
+    width: 100%; box-sizing: border-box; padding: 0.6rem 0.7rem;
+    border: 1px solid var(--line); border-radius: 2px; font-family: 'Inter', sans-serif; font-size: 1rem;
+    background: var(--chalk); color: var(--ink);
+  }
+  .calc-result { margin-top: 1.5rem; padding-top: 1.2rem; border-top: 1px solid var(--line); }
+  .calc-result-row { display: flex; justify-content: space-between; padding: 0.5rem 0; font-size: 0.95rem; }
+  .calc-result-row strong { color: var(--petrol-deep); }
+  .calc-highlight { font-family: 'Fraunces', serif; font-size: 1.8rem; color: var(--petrol-deep); margin: 0.3rem 0 0; }
+</style>
+</head>
+<body>
+<header class="site">
+  <div class="nav-wrap">
+    <a class="brand" href="index.html">Geld<span>Pilot</span>.de</a>
+    <nav class="links"><a href="index.html">Start</a><a href="glossar.html">Glossar</a><a href="rechner.html">Rechner</a><a href="ueber-uns.html">Über uns</a><a href="kontakt.html">Kontakt</a></nav>
+    <button class="theme-toggle" id="themeToggle" aria-label="Design wechseln">🌙</button>
+    <div class="site-search">
+      <button class="search-toggle" aria-label="Suche öffnen" onclick="toggleSearch()">&#128269;</button>
+      <div class="search-box" id="searchBox">
+        <input type="text" id="searchInput" placeholder="Artikel durchsuchen…" oninput="runSearch(this.value)" autocomplete="off">
+        <div class="search-results" id="searchResults"></div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main class="wide">
+  <p class="label">Werkzeuge</p>
+  <h1>Finanzrechner</h1>
+  <div class="route"><div class="route-mark"></div></div>
+
+  <h2>50-30-20-Budgetrechner</h2>
+  <p>Teile dein monatliches Nettoeinkommen nach der <a href="budget-50-30-20-regel.html">50-30-20-Regel</a> auf.</p>
+  <div class="calc-box">
+    <div class="calc-row">
+      <div class="calc-field">
+        <label for="income">Monatliches Nettoeinkommen (€)</label>
+        <input type="number" id="income" placeholder="z. B. 2400" oninput="calcBudget()">
+      </div>
+    </div>
+    <div class="calc-result" id="budgetResult" style="display:none;">
+      <div class="calc-result-row"><span>Fixkosten (50 %)</span><strong id="rFix">–</strong></div>
+      <div class="calc-result-row"><span>Wünsche (30 %)</span><strong id="rWish">–</strong></div>
+      <div class="calc-result-row"><span>Sparen &amp; Schulden (20 %)</span><strong id="rSave">–</strong></div>
+    </div>
+  </div>
+
+  <h2>Zinseszinsrechner</h2>
+  <p>Berechne, wie sich eine <a href="etf-sparplan-anfaenger.html">Sparplan-Anlage</a> über die Zeit entwickeln kann (vor Kosten und Steuern, ohne Kursschwankungen).</p>
+  <div class="calc-box">
+    <div class="calc-row">
+      <div class="calc-field">
+        <label for="start">Startkapital (€)</label>
+        <input type="number" id="start" placeholder="z. B. 1000" oninput="calcCompound()">
+      </div>
+      <div class="calc-field">
+        <label for="monthly">Monatliche Sparrate (€)</label>
+        <input type="number" id="monthly" placeholder="z. B. 150" oninput="calcCompound()">
+      </div>
+    </div>
+    <div class="calc-row">
+      <div class="calc-field">
+        <label for="rate">Erwartete jährliche Rendite (%)</label>
+        <input type="number" id="rate" placeholder="z. B. 6" oninput="calcCompound()">
+      </div>
+      <div class="calc-field">
+        <label for="years">Anlagedauer (Jahre)</label>
+        <input type="number" id="years" placeholder="z. B. 20" oninput="calcCompound()">
+      </div>
+    </div>
+    <div class="calc-result" id="compoundResult" style="display:none;">
+      <p class="calc-highlight" id="rFinal">–</p>
+      <div class="calc-result-row"><span>Eingezahltes Kapital</span><strong id="rPaidIn">–</strong></div>
+      <div class="calc-result-row"><span>Erwarteter Ertrag</span><strong id="rGain">–</strong></div>
+    </div>
+  </div>
+
+  <p class="article-disclaimer" style="margin-top:0;">Diese Rechner dienen ausschließlich zur groben Orientierung und stellen keine Anlage- oder Steuerberatung dar. Reale Kapitalmarktrenditen schwanken und sind nicht garantiert.</p>
+</main>
+
+<footer class="site">
+  <div class="footer-links">
+    <a href="ueber-uns.html">Über uns</a><a href="kontakt.html">Kontakt</a><a href="datenschutz.html">Datenschutz</a><a href="impressum.html">Impressum</a><a href="nutzungsbedingungen.html">Nutzungsbedingungen</a>
+  </div>
+  <p class="copyright">© 2026 GeldPilot.de</p>
+</footer>
+
+<script>
+function formatEuro(n) {
+  return n.toLocaleString('de-DE', { style: 'currency', currency: 'EUR', maximumFractionDigits: 0 });
+}
+function calcBudget() {
+  const income = parseFloat(document.getElementById('income').value);
+  const box = document.getElementById('budgetResult');
+  if (!income || income <= 0) { box.style.display = 'none'; return; }
+  box.style.display = 'block';
+  document.getElementById('rFix').textContent = formatEuro(income * 0.5);
+  document.getElementById('rWish').textContent = formatEuro(income * 0.3);
+  document.getElementById('rSave').textContent = formatEuro(income * 0.2);
+}
+function calcCompound() {
+  const start = parseFloat(document.getElementById('start').value) || 0;
+  const monthly = parseFloat(document.getElementById('monthly').value) || 0;
+  const rate = parseFloat(document.getElementById('rate').value);
+  const years = parseFloat(document.getElementById('years').value);
+  const box = document.getElementById('compoundResult');
+  if (!rate || !years || years <= 0) { box.style.display = 'none'; return; }
+
+  const monthlyRate = rate / 100 / 12;
+  const months = years * 12;
+  let balance = start;
+  for (let i = 0; i < months; i++) {
+    balance = balance * (1 + monthlyRate) + monthly;
+  }
+  const paidIn = start + monthly * months;
+  const gain = balance - paidIn;
+
+  box.style.display = 'block';
+  document.getElementById('rFinal').textContent = formatEuro(balance);
+  document.getElementById('rPaidIn').textContent = formatEuro(paidIn);
+  document.getElementById('rGain').textContent = formatEuro(gain);
+}
+</script>
+<script src="search-data.js"></script>
+<script src="search.js"></script>
+<script src="site.js"></script>
+</body>
+</html>

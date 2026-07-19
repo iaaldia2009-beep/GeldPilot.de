@@ -178,5 +178,17 @@ const SEARCH_INDEX = [
     "cat": "Familie",
     "title": "Kindergeld beantragen",
     "excerpt": "Höhe, Dauer über die Volljährigkeit hinaus und der Antrag."
+  },
+  {
+    "url": "glossar.html",
+    "cat": "Glossar",
+    "title": "Finanzglossar: Die wichtigsten Begriffe erklärt",
+    "excerpt": "Begriffe rund um Sparen, Kredite, Steuern und Geldanlage einfach erklärt."
+  },
+  {
+    "url": "rechner.html",
+    "cat": "Rechner",
+    "title": "Finanzrechner: Budget & Zinseszins",
+    "excerpt": "Interaktiver 50-30-20-Budgetrechner und Zinseszinsrechner."
   }
 ];
