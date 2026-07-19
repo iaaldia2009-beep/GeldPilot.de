@@ -250,5 +250,110 @@
     <description>Eigenkapital, Förderkredite, Business Angels und Crowdfunding im Vergleich.</description>
     <category>Selbstständige</category>
   </item>
+  <item>
+    <title>Haushaltsbuch führen</title>
+    <link>https://finanziq.github.io/GeldPilot.de/haushaltsbuch-fuehren.html</link>
+    <guid>https://finanziq.github.io/GeldPilot.de/haushaltsbuch-fuehren.html</guid>
+    <description>So behältst du ohne großen Aufwand den Überblick über deine Ausgaben.</description>
+    <category>Budget</category>
+  </item>
+  <item>
+    <title>Die Abo-Falle</title>
+    <link>https://finanziq.github.io/GeldPilot.de/abo-falle-vertraege-kuendigen.html</link>
+    <guid>https://finanziq.github.io/GeldPilot.de/abo-falle-vertraege-kuendigen.html</guid>
+    <description>Vergessene Verträge aufspüren und Kündigungsfristen im Blick behalten.</description>
+    <category>Sparen</category>
+  </item>
+  <item>
+    <title>Online-Banking-Sicherheit</title>
+    <link>https://finanziq.github.io/GeldPilot.de/online-banking-sicherheit.html</link>
+    <guid>https://finanziq.github.io/GeldPilot.de/online-banking-sicherheit.html</guid>
+    <description>Phishing erkennen und dein Konto zuverlässig schützen.</description>
+    <category>Bezahlen</category>
+  </item>
+  <item>
+    <title>Minijob und Steuern</title>
+    <link>https://finanziq.github.io/GeldPilot.de/minijob-und-steuern.html</link>
+    <guid>https://finanziq.github.io/GeldPilot.de/minijob-und-steuern.html</guid>
+    <description>Rentenversicherungspflicht und Steuerpflicht beim Minijob erklärt.</description>
+    <category>Arbeit</category>
+  </item>
+  <item>
+    <title>Zweitjob und Steuern</title>
+    <link>https://finanziq.github.io/GeldPilot.de/zweitjob-und-steuern.html</link>
+    <guid>https://finanziq.github.io/GeldPilot.de/zweitjob-und-steuern.html</guid>
+    <description>Warum Steuerklasse 6 nicht so schlimm ist, wie sie aussieht.</description>
+    <category>Arbeit</category>
+  </item>
+  <item>
+    <title>Weihnachtsgeld und Urlaubsgeld</title>
+    <link>https://finanziq.github.io/GeldPilot.de/weihnachtsgeld-urlaubsgeld.html</link>
+    <guid>https://finanziq.github.io/GeldPilot.de/weihnachtsgeld-urlaubsgeld.html</guid>
+    <description>Anspruch, Versteuerung und was bei Kündigung gilt.</description>
+    <category>Arbeit</category>
+  </item>
+  <item>
+    <title>Elternzeit und Finanzen</title>
+    <link>https://finanziq.github.io/GeldPilot.de/elternzeit-und-finanzen.html</link>
+    <guid>https://finanziq.github.io/GeldPilot.de/elternzeit-und-finanzen.html</guid>
+    <description>Wie sich Elternzeit auf Elterngeld, Sozialversicherung und Job auswirkt.</description>
+    <category>Familie</category>
+  </item>
+  <item>
+    <title>Rentenpunkte verstehen</title>
+    <link>https://finanziq.github.io/GeldPilot.de/rentenpunkte-verstehen.html</link>
+    <guid>https://finanziq.github.io/GeldPilot.de/rentenpunkte-verstehen.html</guid>
+    <description>Wie sich deine gesetzliche Rente tatsächlich berechnet.</description>
+    <category>Altersvorsorge</category>
+  </item>
+  <item>
+    <title>Rentenlücke berechnen</title>
+    <link>https://finanziq.github.io/GeldPilot.de/rentenluecke-berechnen.html</link>
+    <guid>https://finanziq.github.io/GeldPilot.de/rentenluecke-berechnen.html</guid>
+    <description>Wie groß deine persönliche Rentenlücke ist und wie du sie schließt.</description>
+    <category>Altersvorsorge</category>
+  </item>
+  <item>
+    <title>Berufsunfähigkeitsversicherung</title>
+    <link>https://finanziq.github.io/GeldPilot.de/berufsunfaehigkeitsversicherung.html</link>
+    <guid>https://finanziq.github.io/GeldPilot.de/berufsunfaehigkeitsversicherung.html</guid>
+    <description>Worauf es beim Vertrag wirklich ankommt.</description>
+    <category>Versicherungen</category>
+  </item>
+  <item>
+    <title>Wie viel Kredit kann ich mir leisten?</title>
+    <link>https://finanziq.github.io/GeldPilot.de/immobilienfinanzierung-kreditrahmen.html</link>
+    <guid>https://finanziq.github.io/GeldPilot.de/immobilienfinanzierung-kreditrahmen.html</guid>
+    <description>Die Bank-Zusage und deine echte Belastungsgrenze im Vergleich.</description>
+    <category>Wohnen</category>
+  </item>
+  <item>
+    <title>Kfz-Leasing vs. Kauf</title>
+    <link>https://finanziq.github.io/GeldPilot.de/kfz-leasing-vs-kauf.html</link>
+    <guid>https://finanziq.github.io/GeldPilot.de/kfz-leasing-vs-kauf.html</guid>
+    <description>Versteckte Kosten und für wen sich welche Option eignet.</description>
+    <category>Bezahlen</category>
+  </item>
+  <item>
+    <title>Studienkredit vs. BAföG</title>
+    <link>https://finanziq.github.io/GeldPilot.de/studienkredit-vs-bafoeg.html</link>
+    <guid>https://finanziq.github.io/GeldPilot.de/studienkredit-vs-bafoeg.html</guid>
+    <description>Wann ein Studienkredit als Ergänzung sinnvoll sein kann.</description>
+    <category>Bildung</category>
+  </item>
+  <item>
+    <title>Pfändungsfreigrenze erklärt</title>
+    <link>https://finanziq.github.io/GeldPilot.de/pfaendungsfreigrenze-erklaert.html</link>
+    <guid>https://finanziq.github.io/GeldPilot.de/pfaendungsfreigrenze-erklaert.html</guid>
+    <description>Was bei einer Pfändung geschützt bleibt und wie das P-Konto hilft.</description>
+    <category>Schulden</category>
+  </item>
+  <item>
+    <title>Geld anlegen mit wenig Risiko</title>
+    <link>https://finanziq.github.io/GeldPilot.de/geld-anlegen-wenig-risiko.html</link>
+    <guid>https://finanziq.github.io/GeldPilot.de/geld-anlegen-wenig-risiko.html</guid>
+    <description>Alternativen zu Aktien für alle, die Kursschwankungen vermeiden möchten.</description>
+    <category>Geldanlage</category>
+  </item>
 </channel>
 </rss>

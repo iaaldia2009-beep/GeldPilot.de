@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rentenlücke berechnen und schließen — GeldPilot.de</title>
+<meta name="description" content="Wie du deine persönliche Rentenlücke grob berechnest und mit welchen Bausteinen sich die Lücke sinnvoll schließen lässt.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="site">
+  <div class="nav-wrap">
+    <a class="brand" href="index.html">Geld<span>Pilot</span>.de</a>
+    <nav class="links"><a href="index.html">Start</a><a href="glossar.html">Glossar</a><a href="rechner.html">Rechner</a><a href="ueber-uns.html">Über uns</a><a href="kontakt.html">Kontakt</a></nav>
+    <button class="theme-toggle" id="themeToggle" aria-label="Design wechseln">🌙</button>
+    <div class="site-search">
+      <button class="search-toggle" aria-label="Suche öffnen" onclick="toggleSearch()">&#128269;</button>
+      <div class="search-box" id="searchBox">
+        <input type="text" id="searchInput" placeholder="Artikel durchsuchen…" oninput="runSearch(this.value)" autocomplete="off">
+        <div class="search-results" id="searchResults"></div>
+      </div>
+    </div>
+  </div>
+</header>
+<main>
+  <p class="label">Altersvorsorge</p>
+  <h1>Rentenlücke berechnen und schließen</h1>
+  <p class="article-meta">Lesezeit ca. 7 Minuten</p>
+  <p class="author-byline">Von <a href="ueber-uns.html">Adam Faik</a></p>
+  <p class="article-dates">Veröffentlicht: Juli 2026 · Zuletzt aktualisiert: Juli 2026</p>
+  <div class="route"><div class="route-mark"></div></div>
+
+  <p>Die Rentenlücke ist keine abstrakte Zahl, sondern lässt sich mit ein paar Eckdaten aus der eigenen Renteninformation überschlagen — und genau das macht sie erst greifbar genug, um aktiv zu handeln.</p>
+
+  <h2>Was die Rentenlücke eigentlich ist</h2>
+  <p>Die Rentenlücke beschreibt die Differenz zwischen dem letzten Nettoeinkommen vor Renteneintritt und der voraussichtlichen gesetzlichen Rente. Sie zeigt, wie viel zusätzliches Einkommen im Alter benötigt wird, um den gewohnten Lebensstandard zu halten.</p>
+
+  <h2>Eine grobe Beispielrechnung</h2>
+  <table>
+    <tr><th>Position</th><th>Beispiel</th></tr>
+    <tr><td>Letztes Nettoeinkommen</td><td>2.800 €</td></tr>
+    <tr><td>Erwartete gesetzliche Rente</td><td>1.700 €</td></tr>
+    <tr><td>Monatliche Rentenlücke</td><td>1.100 €</td></tr>
+  </table>
+  <blockquote>Schon eine grobe Überschlagsrechnung mit den Zahlen aus der jährlichen Renteninformation reicht aus, um die eigene Rentenlücke realistisch einzuschätzen — eine exakte Berechnung ist für die erste Orientierung nicht nötig.</blockquote>
+
+  <h2>Bausteine, um die Lücke zu schließen</h2>
+  <ul>
+    <li><strong>Betriebliche Altersvorsorge:</strong> besonders bei vorhandenem Arbeitgeberzuschuss ein naheliegender erster Baustein.</li>
+    <li><strong>Private Vorsorge:</strong> etwa ein <a href="etf-sparplan-anfaenger.html">ETF-Sparplan</a>, angepasst an den verbleibenden Zeithorizont bis zum Ruhestand.</li>
+    <li><strong>Freiwillige Beiträge zur gesetzlichen Rente:</strong> für bestimmte Personengruppen möglich, etwa Selbstständige.</li>
+    <li><strong>Immobilie als Altersvorsorge:</strong> mietfreies Wohnen im Alter reduziert die benötigte monatliche Rente indirekt.</li>
+  </ul>
+
+  <h2>Wie viel monatliches Sparen realistisch nötig ist</h2>
+  <p>Je früher mit dem Schließen der Lücke begonnen wird, desto geringer kann der monatliche Sparbetrag ausfallen, da mehr Zeit für den Zinseszinseffekt zur Verfügung steht. Ein später Start erfordert entsprechend höhere monatliche Beträge, um dieselbe Zielsumme zu erreichen.</p>
+
+  <h2>Praktisches Vorgehen</h2>
+  <ol>
+    <li>Die eigene Renteninformation als Ausgangspunkt für die Überschlagsrechnung nutzen.</li>
+    <li>Die monatliche Lücke grob mit dem <a href="rechner.html">Zinseszinsrechner</a> in eine notwendige monatliche Sparrate übersetzen.</li>
+    <li>Bausteine kombinieren, statt sich allein auf einen einzigen Vorsorgeweg zu verlassen.</li>
+  </ol>
+
+  <h2>Fazit</h2>
+  <p>Die eigene Rentenlücke lässt sich mit wenigen Zahlen grob, aber aussagekräftig berechnen. Der wichtigste Schritt ist selten die exakte Zahl, sondern der frühzeitige Beginn, sie mit den passenden Bausteinen zu schließen.</p>
+
+  <div class="article-disclaimer">
+    <strong>Hinweis:</strong> Dieser Artikel dient der allgemeinen Information und ersetzt keine individuelle Finanz-, Steuer- oder Rechtsberatung. Für Entscheidungen auf Basis dieser Inhalte übernehmen wir keine Haftung.
+  </div>
+</main>
+<div class="article-nav">
+  <a href="rentenpunkte-verstehen.html">← Rentenpunkte verstehen</a>
+  <a href="berufsunfaehigkeitsversicherung.html">Weiter: Berufsunfähigkeitsversicherung →</a>
+</div>
+<footer class="site">
+  <div class="footer-links">
+    <a href="ueber-uns.html">Über uns</a><a href="kontakt.html">Kontakt</a><a href="datenschutz.html">Datenschutz</a><a href="impressum.html">Impressum</a><a href="nutzungsbedingungen.html">Nutzungsbedingungen</a>
+  </div>
+  <p class="copyright">© 2026 GeldPilot.de</p>
+</footer>
+<script src="search-data.js"></script>
+<script src="article-extra.js"></script>
+<script src="search.js"></script>
+<script src="site.js"></script>
+</body>
+</html>

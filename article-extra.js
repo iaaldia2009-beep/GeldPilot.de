@@ -141,6 +141,66 @@ const FAQ_DATA = {
   "finanzierung-fuer-gruender.html": [
     {q: "Sind Förderkredite günstiger als normale Bankkredite?", a: "Oft ja, da sie speziell für Existenzgründungen konzipiert sind und teils bessere Konditionen bieten."},
     {q: "Wo beantrage ich einen Förderkredit?", a: "In der Regel über die eigene Hausbank, nicht direkt bei der Förderbank."}
+  ],
+  "haushaltsbuch-fuehren.html": [
+    {q: "Muss ich jeden einzelnen Cent erfassen?", a: "Nein, grobe Kategorien reichen für den Anfang völlig aus, um Ausgabenmuster zu erkennen."},
+    {q: "Welche App-Methode ist am einfachsten?", a: "Eine App mit Kontoanbindung erfordert den geringsten manuellen Aufwand, da Buchungen automatisch erfasst werden."}
+  ],
+  "abo-falle-vertraege-kuendigen.html": [
+    {q: "Wie finde ich alle laufenden Abos?", a: "Kontoauszüge der letzten drei Monate durchsehen und zusätzlich App-Store-Abonnements separat prüfen."},
+    {q: "Was tun bei unsicherer Nutzung eines Abos?", a: "Wenn möglich pausieren statt sofort zu kündigen, um die Option offen zu halten."}
+  ],
+  "online-banking-sicherheit.html": [
+    {q: "Fordert meine Bank jemals eine TAN per Telefon an?", a: "Nein, seriöse Banken fordern niemals per Telefon, E-Mail oder SMS zur TAN-Eingabe außerhalb einer selbst ausgelösten Transaktion auf."},
+    {q: "Was tue ich bei Verdacht auf Phishing?", a: "Nicht klicken oder antworten, sondern direkt über die offizielle App oder Telefonnummer der Bank nachfragen."}
+  ],
+  "minijob-und-steuern.html": [
+    {q: "Muss ich als Minijobber Rentenbeiträge zahlen?", a: "Grundsätzlich ja, es sei denn, du lässt dich aktiv von der Rentenversicherungspflicht befreien."},
+    {q: "Kann ich zwei Minijobs gleichzeitig haben?", a: "Ein zweiter Minijob wird in der Regel mit dem ersten zusammengerechnet und kann den begünstigten Status gefährden."}
+  ],
+  "zweitjob-und-steuern.html": [
+    {q: "Ist Steuerklasse 6 wirklich so schlecht?", a: "Der hohe monatliche Abzug gleicht sich über die Steuererklärung meist wieder aus."},
+    {q: "Lohnt sich ein Minijob statt eines Zweitjobs?", a: "Ein Minijob bleibt meist pauschal abgabenfrei, ist aber auf die Minijob-Grenze begrenzt."}
+  ],
+  "weihnachtsgeld-urlaubsgeld.html": [
+    {q: "Habe ich automatisch Anspruch auf Weihnachtsgeld?", a: "Nein, ohne Tarifvertrag, Einzelvereinbarung oder betriebliche Übung besteht kein automatischer gesetzlicher Anspruch."},
+    {q: "Wird Weihnachtsgeld anders versteuert als normales Gehalt?", a: "Es zählt als sonstiger Bezug und wird nach der individuellen Steuerklasse versteuert, ohne reduzierten Sondersteuersatz."}
+  ],
+  "elternzeit-und-finanzen.html": [
+    {q: "Ist Elterngeld dasselbe wie Elternzeit?", a: "Nein, Elternzeit ist das Recht auf Freistellung vom Job, Elterngeld die finanzielle Leistung währenddessen."},
+    {q: "Zählt Elternzeit für die Rente?", a: "Ja, Kindererziehungszeiten werden als eigene Rentenpunkte angerechnet."}
+  ],
+  "rentenpunkte-verstehen.html": [
+    {q: "Was ist ein Entgeltpunkt?", a: "Er entspricht einem Jahr Beitragszahlung in Höhe des Durchschnittsentgelts aller Versicherten."},
+    {q: "Zählt Elternzeit für die Rentenpunkte?", a: "Ja, Kindererziehungszeiten werden mit eigenen Entgeltpunkten angerechnet."}
+  ],
+  "rentenluecke-berechnen.html": [
+    {q: "Wie berechne ich meine Rentenlücke grob?", a: "Ziehe die erwartete gesetzliche Rente von deinem letzten Nettoeinkommen ab — die Differenz ist die monatliche Lücke."},
+    {q: "Reicht ein ETF-Sparplan, um die Lücke zu schließen?", a: "Er kann ein wichtiger Baustein sein, sollte aber je nach Zeithorizont mit weiteren Bausteinen kombiniert werden."}
+  ],
+  "berufsunfaehigkeitsversicherung.html": [
+    {q: "Reicht die gesetzliche Erwerbsminderungsrente nicht aus?", a: "Meist nicht, da sie strengere Voraussetzungen hat und niedriger ausfällt als das bisherige Einkommen."},
+    {q: "Warum lohnt sich ein früher Abschluss?", a: "Die Konditionen richten sich nach Alter und Gesundheitszustand bei Abschluss — früher ist meist günstiger."}
+  ],
+  "immobilienfinanzierung-kreditrahmen.html": [
+    {q: "Sollte ich die maximal bewilligte Kreditsumme ausschöpfen?", a: "Nicht unbedingt — die bewilligte Summe ist nicht automatisch die langfristig komfortable Belastungsgrenze."},
+    {q: "Wie hoch sollte die monatliche Rate maximal sein?", a: "Sie sollte genug Spielraum für andere Fixkosten, Rücklagen und unerwartete Ausgaben lassen."}
+  ],
+  "kfz-leasing-vs-kauf.html": [
+    {q: "Ist Leasing immer günstiger als Kauf?", a: "Nicht zwingend — Mehrkilometer und Rückgabebewertungen können die Gesamtkosten deutlich erhöhen."},
+    {q: "Für wen eignet sich Leasing besonders?", a: "Für alle mit planbarer Kilometerleistung und dem Wunsch nach regelmäßigem Fahrzeugwechsel."}
+  ],
+  "studienkredit-vs-bafoeg.html": [
+    {q: "Ist ein Studienkredit teurer als BAföG?", a: "In der Regel ja, da BAföG einen zinslosen Darlehensanteil hat, während Studienkredite marktübliche Zinsen verlangen."},
+    {q: "Wann lohnt sich ein Studienkredit trotzdem?", a: "Wenn BAföG, Stipendien und Nebenverdienste bereits ausgeschöpft sind."}
+  ],
+  "pfaendungsfreigrenze-erklaert.html": [
+    {q: "Was bringt ein P-Konto konkret?", a: "Es sichert den gesetzlichen Pfändungsfreibetrag automatisch, ohne dass das Konto komplett gesperrt wird."},
+    {q: "Erhöht sich der Freibetrag bei Kindern?", a: "Ja, unterhaltsberechtigte Personen im Haushalt erhöhen den geschützten Grundbetrag."}
+  ],
+  "geld-anlegen-wenig-risiko.html": [
+    {q: "Sind risikoarme Anlagen komplett sicher?", a: "Nein, auch sie sind nicht automatisch inflationssicher und bei Anleihen besteht ein Ausfallrisiko des Emittenten."},
+    {q: "Wofür eignen sich risikoarme Anlagen am besten?", a: "Für kurzfristige Ziele mit klarem Zeithorizont, nicht als alleinige langfristige Vermögensstrategie."}
   ]
 };
 

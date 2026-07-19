@@ -209,6 +209,106 @@ const SEARCH_INDEX = [
     "title": "Finanzierung für Gründer",
     "excerpt": "Eigenkapital, Förderkredite, Business Angels und Crowdfunding im Vergleich."
   },
-  {"url": "glossar.html", "cat": "Glossar", "title": "Finanzglossar: Die wichtigsten Begriffe erklärt", "excerpt": "Begriffe rund um Sparen, Kredite, Steuern und Geldanlage einfach erklärt."},
-  {"url": "rechner.html", "cat": "Rechner", "title": "Finanzrechner: Budget & Zinseszins", "excerpt": "Interaktiver 50-30-20-Budgetrechner und Zinseszinsrechner."}
+  {
+    "url": "haushaltsbuch-fuehren.html",
+    "cat": "Budget",
+    "title": "Haushaltsbuch führen",
+    "excerpt": "So behältst du ohne großen Aufwand den Überblick über deine Ausgaben."
+  },
+  {
+    "url": "abo-falle-vertraege-kuendigen.html",
+    "cat": "Sparen",
+    "title": "Die Abo-Falle",
+    "excerpt": "Vergessene Verträge aufspüren und Kündigungsfristen im Blick behalten."
+  },
+  {
+    "url": "online-banking-sicherheit.html",
+    "cat": "Bezahlen",
+    "title": "Online-Banking-Sicherheit",
+    "excerpt": "Phishing erkennen und dein Konto zuverlässig schützen."
+  },
+  {
+    "url": "minijob-und-steuern.html",
+    "cat": "Arbeit",
+    "title": "Minijob und Steuern",
+    "excerpt": "Rentenversicherungspflicht und Steuerpflicht beim Minijob erklärt."
+  },
+  {
+    "url": "zweitjob-und-steuern.html",
+    "cat": "Arbeit",
+    "title": "Zweitjob und Steuern",
+    "excerpt": "Warum Steuerklasse 6 nicht so schlimm ist, wie sie aussieht."
+  },
+  {
+    "url": "weihnachtsgeld-urlaubsgeld.html",
+    "cat": "Arbeit",
+    "title": "Weihnachtsgeld und Urlaubsgeld",
+    "excerpt": "Anspruch, Versteuerung und was bei Kündigung gilt."
+  },
+  {
+    "url": "elternzeit-und-finanzen.html",
+    "cat": "Familie",
+    "title": "Elternzeit und Finanzen",
+    "excerpt": "Wie sich Elternzeit auf Elterngeld, Sozialversicherung und Job auswirkt."
+  },
+  {
+    "url": "rentenpunkte-verstehen.html",
+    "cat": "Altersvorsorge",
+    "title": "Rentenpunkte verstehen",
+    "excerpt": "Wie sich deine gesetzliche Rente tatsächlich berechnet."
+  },
+  {
+    "url": "rentenluecke-berechnen.html",
+    "cat": "Altersvorsorge",
+    "title": "Rentenlücke berechnen",
+    "excerpt": "Wie groß deine persönliche Rentenlücke ist und wie du sie schließt."
+  },
+  {
+    "url": "berufsunfaehigkeitsversicherung.html",
+    "cat": "Versicherungen",
+    "title": "Berufsunfähigkeitsversicherung",
+    "excerpt": "Worauf es beim Vertrag wirklich ankommt."
+  },
+  {
+    "url": "immobilienfinanzierung-kreditrahmen.html",
+    "cat": "Wohnen",
+    "title": "Wie viel Kredit kann ich mir leisten?",
+    "excerpt": "Die Bank-Zusage und deine echte Belastungsgrenze im Vergleich."
+  },
+  {
+    "url": "kfz-leasing-vs-kauf.html",
+    "cat": "Bezahlen",
+    "title": "Kfz-Leasing vs. Kauf",
+    "excerpt": "Versteckte Kosten und für wen sich welche Option eignet."
+  },
+  {
+    "url": "studienkredit-vs-bafoeg.html",
+    "cat": "Bildung",
+    "title": "Studienkredit vs. BAföG",
+    "excerpt": "Wann ein Studienkredit als Ergänzung sinnvoll sein kann."
+  },
+  {
+    "url": "pfaendungsfreigrenze-erklaert.html",
+    "cat": "Schulden",
+    "title": "Pfändungsfreigrenze erklärt",
+    "excerpt": "Was bei einer Pfändung geschützt bleibt und wie das P-Konto hilft."
+  },
+  {
+    "url": "geld-anlegen-wenig-risiko.html",
+    "cat": "Geldanlage",
+    "title": "Geld anlegen mit wenig Risiko",
+    "excerpt": "Alternativen zu Aktien für alle, die Kursschwankungen vermeiden möchten."
+  },
+  {
+    "url": "glossar.html",
+    "cat": "Glossar",
+    "title": "Finanzglossar: Die wichtigsten Begriffe erklärt",
+    "excerpt": "Begriffe rund um Sparen, Kredite, Steuern und Geldanlage einfach erklärt."
+  },
+  {
+    "url": "rechner.html",
+    "cat": "Rechner",
+    "title": "Finanzrechner: Budget & Zinseszins",
+    "excerpt": "Interaktiver 50-30-20-Budgetrechner und Zinseszinsrechner."
+  }
 ];
