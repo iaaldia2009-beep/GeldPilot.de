@@ -311,3 +311,36 @@ html[data-theme="dark"] .fill { background: rgba(200,155,60,0.10); }
   font-size: 0.85rem; color: var(--slate); border-radius: 2px;
 }
 .article-dates { font-size: 0.78rem; color: var(--slate); margin-top: 0.3rem; }
+
+/* ---------- Angebots-/Werbesektion (Startseite) ---------- */
+.offer-section {
+  max-width: 960px; margin: 0 auto; padding: 0 1.5rem 3.5rem;
+}
+.stat-bar {
+  display: flex; flex-wrap: wrap; gap: 0; justify-content: space-between;
+  background: var(--petrol-deep); border-radius: 3px;
+  padding: 1.6rem 1rem; margin-bottom: 2.5rem;
+}
+.stat {
+  flex: 1; min-width: 120px; text-align: center;
+  display: flex; flex-direction: column; gap: 0.3rem;
+  border-right: 1px solid rgba(247,244,236,0.14);
+}
+.stat:last-child { border-right: none; }
+.stat strong {
+  font-family: 'Fraunces', serif; font-size: 1.9rem; color: var(--gold); line-height: 1;
+}
+.stat span {
+  font-family: 'IBM Plex Mono', monospace; font-size: 0.68rem;
+  text-transform: uppercase; letter-spacing: 0.06em; color: rgba(247,244,236,0.75);
+}
+.offer-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.8rem;
+}
+.offer-item h3 { font-size: 1.15rem; margin: 0.5rem 0 0.5rem; }
+.offer-item p { color: var(--slate); font-size: 0.93rem; margin: 0; }
+@media (max-width: 640px) {
+  .stat { min-width: 40%; border-right: none; border-bottom: 1px solid rgba(247,244,236,0.14); padding-bottom: 0.8rem; margin-bottom: 0.8rem; }
+  .stat:nth-child(2n) { border-right: none; }
+}
