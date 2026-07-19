@@ -121,10 +121,31 @@ const FAQ_DATA = {
   "kindergeld-beantragen.html": [
     {q: "Endet Kindergeld automatisch mit der Volljährigkeit?", a: "Nein, es läuft bei Schule, Ausbildung oder Studium in der Regel weiter, sofern rechtzeitig ein Nachweis eingereicht wird."},
     {q: "Kindergeld oder Kinderfreibetrag — was ist besser?", a: "Das Finanzamt prüft das automatisch; für die meisten Familien bleibt das Kindergeld die günstigere Variante."}
+  ],
+  "kleinunternehmerregelung.html": [
+    {q: "Verliere ich den Vorsteuerabzug komplett?", a: "Ja, solange die Kleinunternehmerregelung genutzt wird, entfällt der Vorsteuerabzug auf alle Betriebsausgaben vollständig."},
+    {q: "Kann ich später zur Regelbesteuerung wechseln?", a: "Ja, allerdings bindet ein Wechsel in der Regel für mehrere Jahre, bevor erneut gewechselt werden kann."}
+  ],
+  "rechnungsstellung-pflichtangaben.html": [
+    {q: "Was passiert bei einer unvollständigen Rechnung?", a: "Sie kann beim Empfänger den Vorsteuerabzug gefährden und sollte korrigiert werden."},
+    {q: "Gelten für Kleinbetragsrechnungen weniger Pflichtangaben?", a: "Ja, bis zu einem geringen Bruttobetrag gelten vereinfachte Anforderungen."}
+  ],
+  "gruendungszuschuss.html": [
+    {q: "Wird der Gründungszuschuss automatisch gewährt?", a: "Nein, insbesondere die zweite Förderphase ist eine Ermessensleistung der Arbeitsagentur."},
+    {q: "Kann ich den Zuschuss rückwirkend beantragen?", a: "Nein, der Antrag muss vor Beginn der Selbstständigkeit gestellt werden."}
+  ],
+  "steuervorauszahlungen-selbststaendige.html": [
+    {q: "Warum steigen die Vorauszahlungen im zweiten Jahr oft stark an?", a: "Sie werden auf Basis des ersten Jahresergebnisses neu festgesetzt, während gleichzeitig die Nachzahlung für das Gründungsjahr fällig wird."},
+    {q: "Kann ich zu hohe Vorauszahlungen anpassen lassen?", a: "Ja, bei gesunkenem Gewinn kann beim Finanzamt eine Herabsetzung beantragt werden."}
+  ],
+  "finanzierung-fuer-gruender.html": [
+    {q: "Sind Förderkredite günstiger als normale Bankkredite?", a: "Oft ja, da sie speziell für Existenzgründungen konzipiert sind und teils bessere Konditionen bieten."},
+    {q: "Wo beantrage ich einen Förderkredit?", a: "In der Regel über die eigene Hausbank, nicht direkt bei der Förderbank."}
   ]
 };
 
 const SOURCE_LINKS = {
+  "Selbstständige": [["IHK", "https://www.ihk.de"], ["KfW", "https://www.kfw.de"], ["Bundesagentur für Arbeit", "https://www.arbeitsagentur.de"]],
   "Budget": [["Verbraucherzentrale", "https://www.verbraucherzentrale.de"]],
   "Sparen": [["Deutsche Bundesbank", "https://www.bundesbank.de"], ["BaFin", "https://www.bafin.de"]],
   "Kredite": [["BaFin", "https://www.bafin.de"], ["Schufa", "https://www.schufa.de"]],

@@ -132,8 +132,10 @@
         <a href="https://wa.me/?text=${title}%20${url}" target="_blank" rel="noopener">WhatsApp</a>
         <a href="https://twitter.com/intent/tweet?text=${title}&url=${url}" target="_blank" rel="noopener">X</a>
         <a href="https://www.linkedin.com/sharing/share-offsite/?url=${url}" target="_blank" rel="noopener">LinkedIn</a>
+        <button class="print-btn" id="printBtn" type="button">Drucken / PDF</button>
       `;
       nav.after(share);
+      document.getElementById('printBtn').addEventListener('click', () => window.print());
 
       /* --- Ähnliche Artikel --- */
       const related = SEARCH_INDEX.filter(i => i.cat === currentEntry.cat && i.url !== currentFile).slice(0, 3);

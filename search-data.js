@@ -180,15 +180,35 @@ const SEARCH_INDEX = [
     "excerpt": "Höhe, Dauer über die Volljährigkeit hinaus und der Antrag."
   },
   {
-    "url": "glossar.html",
-    "cat": "Glossar",
-    "title": "Finanzglossar: Die wichtigsten Begriffe erklärt",
-    "excerpt": "Begriffe rund um Sparen, Kredite, Steuern und Geldanlage einfach erklärt."
+    "url": "kleinunternehmerregelung.html",
+    "cat": "Selbstständige",
+    "title": "Kleinunternehmerregelung",
+    "excerpt": "Wann sich der Verzicht auf Umsatzsteuer wirklich lohnt."
   },
   {
-    "url": "rechner.html",
-    "cat": "Rechner",
-    "title": "Finanzrechner: Budget & Zinseszins",
-    "excerpt": "Interaktiver 50-30-20-Budgetrechner und Zinseszinsrechner."
-  }
+    "url": "rechnungsstellung-pflichtangaben.html",
+    "cat": "Selbstständige",
+    "title": "Rechnungsstellung: Pflichtangaben",
+    "excerpt": "Die Angaben, die auf keiner Rechnung fehlen dürfen."
+  },
+  {
+    "url": "gruendungszuschuss.html",
+    "cat": "Selbstständige",
+    "title": "Gründungszuschuss",
+    "excerpt": "Voraussetzungen, Förderphasen und der Antrag bei der Arbeitsagentur."
+  },
+  {
+    "url": "steuervorauszahlungen-selbststaendige.html",
+    "cat": "Selbstständige",
+    "title": "Steuervorauszahlungen einplanen",
+    "excerpt": "Wie du die typische Doppelbelastung im zweiten Geschäftsjahr vermeidest."
+  },
+  {
+    "url": "finanzierung-fuer-gruender.html",
+    "cat": "Selbstständige",
+    "title": "Finanzierung für Gründer",
+    "excerpt": "Eigenkapital, Förderkredite, Business Angels und Crowdfunding im Vergleich."
+  },
+  {"url": "glossar.html", "cat": "Glossar", "title": "Finanzglossar: Die wichtigsten Begriffe erklärt", "excerpt": "Begriffe rund um Sparen, Kredite, Steuern und Geldanlage einfach erklärt."},
+  {"url": "rechner.html", "cat": "Rechner", "title": "Finanzrechner: Budget & Zinseszins", "excerpt": "Interaktiver 50-30-20-Budgetrechner und Zinseszinsrechner."}
 ];
