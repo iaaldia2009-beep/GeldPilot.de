@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Finanz-Quiz: Wie fit bist du in Finanzfragen? — GeldPilot.de</title>
+<meta name="description" content="Teste in 8 Fragen dein Finanzwissen und erhalte am Ende passende Artikelempfehlungen zu den Themen, die du noch vertiefen kannst.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Finanz-Quiz: Wie fit bist du in Finanzfragen? — GeldPilot.de">
+<meta property="og:description" content="Teste in 8 Fragen dein Finanzwissen und erhalte am Ende passende Artikelempfehlungen.">
+<meta property="og:url" content="https://finanziq.github.io/GeldPilot.de/quiz.html">
+<meta property="og:locale" content="de_DE">
+<link rel="canonical" href="https://finanziq.github.io/GeldPilot.de/quiz.html">
+<link rel="alternate" type="application/rss+xml" title="GeldPilot.de" href="feed.xml">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="stylesheet" href="style.css">
+<style>
+  .quiz-box { background: #fff; border: 1px solid var(--line); border-radius: 3px; padding: 2rem; margin: 1.5rem 0 3rem; }
+  .quiz-progress { font-family: 'IBM Plex Mono', monospace; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--gold); margin-bottom: 0.6rem; }
+  .quiz-question { font-family: 'Fraunces', serif; font-size: 1.25rem; color: var(--petrol-deep); margin: 0 0 1.2rem; }
+  .quiz-option {
+    display: block; padding: 0.8rem 1rem; margin-bottom: 0.7rem;
+    border: 1px solid var(--line); border-radius: 2px; cursor: pointer;
+    font-size: 0.95rem; transition: border-color 0.15s;
+  }
+  .quiz-option:hover { border-color: var(--gold); }
+  .quiz-option input { margin-right: 0.6rem; }
+  .quiz-option.selected { border-color: var(--petrol); background: rgba(15,58,61,0.04); }
+  .quiz-nav { display: flex; justify-content: space-between; margin-top: 1.5rem; }
+  .quiz-btn {
+    background: var(--petrol-deep); color: var(--chalk); border: none;
+    font-family: 'Inter', sans-serif; font-size: 0.9rem; font-weight: 500;
+    padding: 0.7rem 1.6rem; border-radius: 2px; cursor: pointer;
+  }
+  .quiz-btn:hover { background: var(--gold); color: var(--petrol-deep); }
+  .quiz-btn:disabled { opacity: 0.4; cursor: not-allowed; }
+  .quiz-btn-secondary { background: transparent; color: var(--slate); border: 1px solid var(--line); }
+  .quiz-result-score { font-family: 'Fraunces', serif; font-size: 2.4rem; color: var(--petrol-deep); margin: 0 0 0.3rem; }
+  .quiz-result-tier { font-family: 'IBM Plex Mono', monospace; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--gold); }
+  .quiz-recommendations { margin-top: 1.8rem; }
+  .quiz-rec-card {
+    display: block; padding: 0.9rem 1.1rem; border: 1px solid var(--line); border-radius: 2px;
+    text-decoration: none; margin-bottom: 0.7rem;
+  }
+  .quiz-rec-card:hover { border-color: var(--gold); }
+  .quiz-rec-card strong { color: var(--ink); font-size: 0.92rem; }
+  #quizStart, #quizQuestions, #quizResult { display: none; }
+  #quizStart.active, #quizQuestions.active, #quizResult.active { display: block; }
+</style>
+</head>
+<body>
+<header class="site">
+  <div class="nav-wrap">
+    <a class="brand" href="index.html">Geld<span>Pilot</span>.de</a>
+    <nav class="links"><a href="index.html">Start</a><a href="glossar.html">Glossar</a><a href="rechner.html">Rechner</a><a href="quiz.html">Quiz</a><a href="ueber-uns.html">Über uns</a><a href="kontakt.html">Kontakt</a></nav>
+    <button class="theme-toggle" id="themeToggle" aria-label="Design wechseln">🌙</button>
+    <div class="site-search">
+      <button class="search-toggle" aria-label="Suche öffnen" onclick="toggleSearch()">&#128269;</button>
+      <div class="search-box" id="searchBox">
+        <input type="text" id="searchInput" placeholder="Artikel durchsuchen…" oninput="runSearch(this.value)" autocomplete="off">
+        <div class="search-results" id="searchResults"></div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main class="wide">
+  <p class="label">Finanz-Quiz</p>
+  <h1>Wie fit bist du in Finanzfragen?</h1>
+  <div class="route"><div class="route-mark"></div></div>
+
+  <div class="quiz-box active" id="quizStart">
+    <p>8 kurze Fragen zu Budget, Sparen, Krediten und Altersvorsorge. Am Ende bekommst du dein Ergebnis und passende Artikel zu den Themen, die sich für dich lohnen.</p>
+    <button class="quiz-btn" onclick="startQuiz()">Quiz starten</button>
+  </div>
+
+  <div class="quiz-box" id="quizQuestions">
+    <p class="quiz-progress" id="quizProgress">Frage 1 von 8</p>
+    <p class="quiz-question" id="quizQuestionText"></p>
+    <div id="quizOptions"></div>
+    <div class="quiz-nav">
+      <button class="quiz-btn quiz-btn-secondary" id="quizPrevBtn" onclick="prevQuestion()">← Zurück</button>
+      <button class="quiz-btn" id="quizNextBtn" onclick="nextQuestion()" disabled>Weiter →</button>
+    </div>
+  </div>
+
+  <div class="quiz-box" id="quizResult">
+    <p class="quiz-result-tier" id="quizTier"></p>
+    <p class="quiz-result-score" id="quizScore"></p>
+    <p id="quizMessage"></p>
+    <div class="quiz-recommendations">
+      <span class="label">Diese Artikel könnten für dich hilfreich sein</span>
+      <div id="quizRecs" style="margin-top: 0.8rem;"></div>
+    </div>
+    <button class="quiz-btn quiz-btn-secondary" style="margin-top: 1rem;" onclick="location.reload()">Quiz wiederholen</button>
+  </div>
+</main>
+
+<footer class="site">
+  <div class="footer-links">
+    <a href="ueber-uns.html">Über uns</a><a href="kontakt.html">Kontakt</a><a href="datenschutz.html">Datenschutz</a><a href="impressum.html">Impressum</a><a href="nutzungsbedingungen.html">Nutzungsbedingungen</a>
+  </div>
+  <p class="copyright">© 2026 GeldPilot.de</p>
+</footer>
+
+<script>
+const QUIZ = [
+  {
+    q: "Wie viele Monatsausgaben sollte ein Notgroschen ungefähr abdecken?",
+    options: ["Ein bis zwei Wochen", "Drei bis sechs Monate", "Ein ganzes Jahr"],
+    correct: 1,
+    article: { url: "notgroschen-ruecklage.html", title: "Notgroschen aufbauen: Wie viel Rücklage du wirklich brauchst" }
+  },
+  {
+    q: "Was zählt bei der 50-30-20-Regel zu den Fixkosten?",
+    options: ["Streaming-Abo", "Miete und Versicherungen", "Restaurantbesuche"],
+    correct: 1,
+    article: { url: "budget-50-30-20-regel.html", title: "Die 50-30-20-Regel: So teilst du dein Einkommen sinnvoll ein" }
+  },
+  {
+    q: "Was ist beim Dispokredit typischerweise am problematischsten?",
+    options: ["Er ist sofort verfügbar", "Er hat meist hohe Zinsen bei dauerhafter Nutzung", "Er erfordert einen neuen Antrag"],
+    correct: 1,
+    article: { url: "dispo-vs-ratenkredit.html", title: "Dispokredit vs. Ratenkredit: Was du wissen solltest" }
+  },
+  {
+    q: "Was verändert die Steuerklassenkombination bei Ehepaaren?",
+    options: ["Die Jahressteuerlast insgesamt", "Nur die monatliche Verteilung des Nettoeinkommens", "Ob überhaupt Steuern gezahlt werden"],
+    correct: 1,
+    article: { url: "steuerklasse-wechseln.html", title: "Steuerklasse wechseln: Wann sich das für Ehepaare lohnt" }
+  },
+  {
+    q: "Wie wird eine kostenlose Schufa-Selbstauskunft am Score gemessen?",
+    options: ["Sie verschlechtert ihn", "Sie hat keinen Einfluss auf den Score", "Sie verbessert ihn automatisch"],
+    correct: 1,
+    article: { url: "schufa-score-verbessern.html", title: "Schufa-Score verbessern: Was wirklich hilft (und was nicht)" }
+  },
+  {
+    q: "Was passiert bei einem ETF-Sparplan, wenn die Kurse kurzfristig fallen?",
+    options: ["Automatischer Verkauf zum Schutz", "Es werden mehr Anteile für den gleichen Betrag gekauft", "Der Sparplan wird gestoppt"],
+    correct: 1,
+    article: { url: "etf-sparplan-anfaenger.html", title: "ETF-Sparplan für Anfänger: So startest du mit wenig Geld" }
+  },
+  {
+    q: "Reicht die gesetzliche Rente für die meisten Menschen aus, um den Lebensstandard zu halten?",
+    options: ["Ja, in der Regel vollständig", "Meist nicht ohne zusätzliche Vorsorge", "Nur bei sehr hohem Einkommen"],
+    correct: 1,
+    article: { url: "altersvorsorge-3-saeulen.html", title: "Gesetzliche Rente reicht nicht: Die 3 Säulen der Altersvorsorge erklärt" }
+  },
+  {
+    q: "Was ist bei einer Umschuldung entscheidend, damit sie sich lohnt?",
+    options: ["Nur ein niedrigerer Zinssatz zählt", "Die Zinsersparnis muss Vorfälligkeitsentschädigung und Gebühren übersteigen", "Umschuldung lohnt sich immer"],
+    correct: 1,
+    article: { url: "kredit-umschulden.html", title: "Kredit ablösen und umschulden: Wann sich das lohnt" }
+  }
+];
+
+let currentQ = 0;
+let answers = new Array(QUIZ.length).fill(null);
+
+function startQuiz() {
+  document.getElementById('quizStart').classList.remove('active');
+  document.getElementById('quizQuestions').classList.add('active');
+  renderQuestion();
+}
+
+function renderQuestion() {
+  const item = QUIZ[currentQ];
+  document.getElementById('quizProgress').textContent = `Frage ${currentQ + 1} von ${QUIZ.length}`;
+  document.getElementById('quizQuestionText').textContent = item.q;
+  const optsEl = document.getElementById('quizOptions');
+  optsEl.innerHTML = item.options.map((opt, i) => `
+    <label class="quiz-option ${answers[currentQ] === i ? 'selected' : ''}">
+      <input type="radio" name="quizOpt" value="${i}" ${answers[currentQ] === i ? 'checked' : ''} onchange="selectOption(${i})">
+      ${opt}
+    </label>
+  `).join('');
+  document.getElementById('quizPrevBtn').style.visibility = currentQ === 0 ? 'hidden' : 'visible';
+  document.getElementById('quizNextBtn').textContent = currentQ === QUIZ.length - 1 ? 'Ergebnis anzeigen' : 'Weiter →';
+  document.getElementById('quizNextBtn').disabled = answers[currentQ] === null;
+}
+
+function selectOption(i) {
+  answers[currentQ] = i;
+  renderQuestion();
+}
+
+function nextQuestion() {
+  if (currentQ < QUIZ.length - 1) {
+    currentQ++;
+    renderQuestion();
+  } else {
+    showResult();
+  }
+}
+
+function prevQuestion() {
+  if (currentQ > 0) {
+    currentQ--;
+    renderQuestion();
+  }
+}
+
+function showResult() {
+  document.getElementById('quizQuestions').classList.remove('active');
+  document.getElementById('quizResult').classList.add('active');
+
+  let score = 0;
+  const wrongArticles = [];
+  QUIZ.forEach((item, i) => {
+    if (answers[i] === item.correct) score++;
+    else wrongArticles.push(item.article);
+  });
+
+  document.getElementById('quizScore').textContent = `${score} / ${QUIZ.length}`;
+
+  let tier, message;
+  if (score === QUIZ.length) {
+    tier = "Finanz-Profi";
+    message = "Starkes Ergebnis — du kennst die Grundlagen sehr gut. Vielleicht interessieren dich trotzdem ein paar vertiefende Artikel:";
+  } else if (score >= QUIZ.length - 2) {
+    tier = "Gut aufgestellt";
+    message = "Solides Ergebnis mit ein paar Lücken. Diese Artikel schließen die Themen, die noch offen sind:";
+  } else if (score >= QUIZ.length / 2) {
+    tier = "Auf gutem Weg";
+    message = "Du kennst schon einiges — diese Artikel helfen dir, die restlichen Themen zu vertiefen:";
+  } else {
+    tier = "Einstieg lohnt sich"; 
+    message = "Ein guter Zeitpunkt, um ein paar Grundlagen nachzuholen — fang am besten mit diesen Artikeln an:";
+  }
+  document.getElementById('quizTier').textContent = tier;
+  document.getElementById('quizMessage').textContent = message;
+
+  const recsToShow = wrongArticles.length > 0 ? wrongArticles : [QUIZ[0].article, QUIZ[5].article];
+  document.getElementById('quizRecs').innerHTML = recsToShow.map(a => `
+    <a class="quiz-rec-card" href="${a.url}"><strong>${a.title}</strong></a>
+  `).join('');
+}
+</script>
+<script src="search-data.js"></script>
+<script src="search.js"></script>
+<script src="site.js"></script>
+</body>
+</html>

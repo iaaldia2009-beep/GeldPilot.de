@@ -414,6 +414,21 @@ html[data-theme="dark"] .fill { background: rgba(200,155,60,0.10); }
   .featured-mark { border-left: none; border-top: 1px solid rgba(247,244,236,0.14); padding-left: 0; padding-top: 1.5rem; width: 100%; }
 }
 
+/* ---------- Quiz-Promo ---------- */
+.quiz-promo { max-width: 960px; margin: 0 auto; padding: 0 1.5rem 3.5rem; }
+.quiz-promo-box {
+  background: #fff; border: 1px solid var(--line); border-radius: 3px;
+  padding: 1.8rem 2rem; display: flex; align-items: center; justify-content: space-between;
+  gap: 1.5rem; flex-wrap: wrap;
+}
+.quiz-promo-box h3 { margin: 0.3rem 0 0.4rem; font-size: 1.15rem; }
+.quiz-promo-box p { color: var(--slate); font-size: 0.9rem; margin: 0; max-width: 40ch; }
+.quiz-promo-cta {
+  background: var(--petrol-deep); color: var(--chalk); font-weight: 500;
+  font-size: 0.9rem; padding: 0.7rem 1.5rem; border-radius: 2px; text-decoration: none; flex-shrink: 0;
+}
+.quiz-promo-cta:hover { background: var(--gold); color: var(--petrol-deep); }
+
 /* ---------- Formulare (Kontakt & Newsletter) ---------- */
 .contact-form { max-width: 480px; margin: 1.5rem 0; }
 .form-row { margin-bottom: 1.1rem; }
