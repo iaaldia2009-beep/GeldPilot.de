@@ -92,7 +92,58 @@
   });
 })();
 
-/* ---------- 6. Artikel-Erweiterungen: TOC, Ähnliche Artikel, Quellen, FAQ, Teilen ---------- */
+/* ---------- 7. Zähl-Animation (Startseite Stat-Bar) ---------- */
+(function animatedCounters() {
+  document.addEventListener('DOMContentLoaded', () => {
+    const stats = document.querySelectorAll('.stat strong');
+    if (stats.length === 0) return;
+
+    const animate = (el) => {
+      const raw = el.textContent.trim();
+      const match = raw.match(/^(\d+)(.*)$/);
+      if (!match) return;
+      const target = parseInt(match[1], 10);
+      const suffix = match[2];
+      const duration = 900;
+      const start = performance.now();
+      const step = (now) => {
+        const progress = Math.min((now - start) / duration, 1);
+        const eased = 1 - Math.pow(1 - progress, 3);
+        el.textContent = Math.round(eased * target) + suffix;
+        if (progress < 1) requestAnimationFrame(step);
+      };
+      requestAnimationFrame(step);
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          animate(entry.target);
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.4 });
+
+    stats.forEach(el => observer.observe(el));
+  });
+})();
+
+/* ---------- 8. Steuer-Countdown (Startseite) ---------- */
+(function taxCountdown() {
+  document.addEventListener('DOMContentLoaded', () => {
+    const el = document.getElementById('taxCountdown');
+    if (!el) return;
+
+    const now = new Date();
+    const year = now.getFullYear();
+    // Reguläre Abgabefrist: 31. Juli des Folgejahres (vereinfachte Orientierung)
+    let deadline = new Date(year, 6, 31);
+    if (now > deadline) deadline = new Date(year + 1, 6, 31);
+    const daysLeft = Math.ceil((deadline - now) / (1000 * 60 * 60 * 24));
+
+    document.getElementById('taxCountdownDays').textContent = daysLeft;
+  });
+})();
 (function articleEnhancements() {
   document.addEventListener('DOMContentLoaded', () => {
     const main = document.querySelector('main');

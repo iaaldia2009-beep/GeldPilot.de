@@ -311,5 +311,6 @@ const SEARCH_INDEX = [
     "title": "Finanzrechner: Budget & Zinseszins",
     "excerpt": "Interaktiver 50-30-20-Budgetrechner und Zinseszinsrechner."
   },
-  {"url": "quiz.html", "cat": "Quiz", "title": "Finanz-Quiz: Wie fit bist du in Finanzfragen?", "excerpt": "Teste dein Finanzwissen in 8 Fragen und erhalte passende Artikelempfehlungen."}
+  {"url": "quiz.html", "cat": "Quiz", "title": "Finanz-Quiz: Wie fit bist du in Finanzfragen?", "excerpt": "Teste dein Finanzwissen in 8 Fragen und erhalte passende Artikelempfehlungen."},
+  {"url": "finanz-check.html", "cat": "Finanz-Check", "title": "Finanz-Check: In 2 Minuten deinen Stand prüfen", "excerpt": "8 kurze Ja/Nein-Fragen mit persönlichen Artikelempfehlungen."}
 ];

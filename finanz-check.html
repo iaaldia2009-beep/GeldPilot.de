@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Finanz-Check: In 2 Minuten deinen Stand prüfen — GeldPilot.de</title>
+<meta name="description" content="8 kurze Ja/Nein-Fragen zu deiner Finanzsituation — mit persönlichen Artikelempfehlungen für die Themen, die noch offen sind.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Finanz-Check: In 2 Minuten deinen Stand prüfen — GeldPilot.de">
+<meta property="og:description" content="8 kurze Ja/Nein-Fragen zu deiner Finanzsituation — mit persönlichen Artikelempfehlungen.">
+<meta property="og:url" content="https://finanziq.github.io/GeldPilot.de/finanz-check.html">
+<meta property="og:locale" content="de_DE">
+<link rel="canonical" href="https://finanziq.github.io/GeldPilot.de/finanz-check.html">
+<link rel="alternate" type="application/rss+xml" title="GeldPilot.de" href="feed.xml">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="stylesheet" href="style.css">
+<style>
+  .fc-box { background: #fff; border: 1px solid var(--line); border-radius: 3px; padding: 2rem; margin: 1.5rem 0 3rem; }
+  .fc-progress { font-family: 'IBM Plex Mono', monospace; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--gold); margin-bottom: 0.6rem; }
+  .fc-statement { font-family: 'Fraunces', serif; font-size: 1.25rem; color: var(--petrol-deep); margin: 0 0 1.4rem; }
+  .fc-choices { display: flex; gap: 1rem; }
+  .fc-choice {
+    flex: 1; padding: 1rem; text-align: center; border: 1px solid var(--line); border-radius: 2px;
+    cursor: pointer; font-weight: 500; font-size: 0.95rem;
+  }
+  .fc-choice:hover { border-color: var(--gold); }
+  .fc-choice.selected-yes { border-color: var(--petrol); background: rgba(15,58,61,0.06); }
+  .fc-choice.selected-no { border-color: var(--gold); background: rgba(200,155,60,0.08); }
+  .fc-nav { display: flex; justify-content: space-between; margin-top: 1.5rem; }
+  .fc-btn {
+    background: var(--petrol-deep); color: var(--chalk); border: none;
+    font-family: 'Inter', sans-serif; font-size: 0.9rem; font-weight: 500;
+    padding: 0.7rem 1.6rem; border-radius: 2px; cursor: pointer;
+  }
+  .fc-btn:hover { background: var(--gold); color: var(--petrol-deep); }
+  .fc-btn:disabled { opacity: 0.4; cursor: not-allowed; }
+  .fc-btn-secondary { background: transparent; color: var(--slate); border: 1px solid var(--line); }
+  .fc-result-score { font-family: 'Fraunces', serif; font-size: 2.4rem; color: var(--petrol-deep); margin: 0 0 0.3rem; }
+  .fc-result-tier { font-family: 'IBM Plex Mono', monospace; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--gold); }
+  .fc-rec-card {
+    display: block; padding: 0.9rem 1.1rem; border: 1px solid var(--line); border-radius: 2px;
+    text-decoration: none; margin-bottom: 0.7rem;
+  }
+  .fc-rec-card:hover { border-color: var(--gold); }
+  .fc-rec-card strong { color: var(--ink); font-size: 0.92rem; }
+  #fcStart, #fcQuestions, #fcResult { display: none; }
+  #fcStart.active, #fcQuestions.active, #fcResult.active { display: block; }
+</style>
+</head>
+<body>
+<header class="site">
+  <div class="nav-wrap">
+    <a class="brand" href="index.html">Geld<span>Pilot</span>.de</a>
+    <nav class="links"><a href="index.html">Start</a><a href="glossar.html">Glossar</a><a href="rechner.html">Rechner</a><a href="quiz.html">Quiz</a><a href="finanz-check.html">Finanz-Check</a><a href="ueber-uns.html">Über uns</a><a href="kontakt.html">Kontakt</a></nav>
+    <button class="theme-toggle" id="themeToggle" aria-label="Design wechseln">🌙</button>
+    <div class="site-search">
+      <button class="search-toggle" aria-label="Suche öffnen" onclick="toggleSearch()">&#128269;</button>
+      <div class="search-box" id="searchBox">
+        <input type="text" id="searchInput" placeholder="Artikel durchsuchen…" oninput="runSearch(this.value)" autocomplete="off">
+        <div class="search-results" id="searchResults"></div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main class="wide">
+  <p class="label">Finanz-Check</p>
+  <h1>In 2 Minuten deinen Stand prüfen</h1>
+  <div class="route"><div class="route-mark"></div></div>
+
+  <div class="fc-box active" id="fcStart">
+    <p>8 kurze Ja/Nein-Aussagen zu Notgroschen, Budget, Altersvorsorge und mehr. Am Ende bekommst du eine persönliche Übersicht, welche Themen sich für dich als Nächstes lohnen.</p>
+    <button class="fc-btn" onclick="startCheck()">Check starten</button>
+  </div>
+
+  <div class="fc-box" id="fcQuestions">
+    <p class="fc-progress" id="fcProgress">Aussage 1 von 8</p>
+    <p class="fc-statement" id="fcStatementText"></p>
+    <div class="fc-choices">
+      <div class="fc-choice" id="fcYesBtn" onclick="selectAnswer(true)">Ja</div>
+      <div class="fc-choice" id="fcNoBtn" onclick="selectAnswer(false)">Nein</div>
+    </div>
+    <div class="fc-nav">
+      <button class="fc-btn fc-btn-secondary" id="fcPrevBtn" onclick="prevStatement()">← Zurück</button>
+      <button class="fc-btn" id="fcNextBtn" onclick="nextStatement()" disabled>Weiter →</button>
+    </div>
+  </div>
+
+  <div class="fc-box" id="fcResult">
+    <p class="fc-result-tier" id="fcTier"></p>
+    <p class="fc-result-score" id="fcScore"></p>
+    <p id="fcMessage"></p>
+    <div style="margin-top: 1.8rem;">
+      <span class="label">Diese Themen lohnen sich für dich als Nächstes</span>
+      <div id="fcRecs" style="margin-top: 0.8rem;"></div>
+    </div>
+    <button class="fc-btn fc-btn-secondary" style="margin-top: 1rem;" onclick="location.reload()">Check wiederholen</button>
+  </div>
+</main>
+
+<footer class="site">
+  <div class="footer-links">
+    <a href="ueber-uns.html">Über uns</a><a href="kontakt.html">Kontakt</a><a href="datenschutz.html">Datenschutz</a><a href="impressum.html">Impressum</a><a href="nutzungsbedingungen.html">Nutzungsbedingungen</a>
+  </div>
+  <p class="copyright">© 2026 GeldPilot.de</p>
+</footer>
+
+<script>
+const CHECK = [
+  { s: "Ich habe einen Notgroschen von mindestens drei Monatsausgaben.", article: { url: "notgroschen-ruecklage.html", title: "Notgroschen aufbauen: Wie viel Rücklage du wirklich brauchst" } },
+  { s: "Ich habe ein festes monatliches Budget, an dem ich mich orientiere.", article: { url: "budget-50-30-20-regel.html", title: "Die 50-30-20-Regel: So teilst du dein Einkommen sinnvoll ein" } },
+  { s: "Ich kenne meinen ungefähren Schufa-Score.", article: { url: "schufa-score-verbessern.html", title: "Schufa-Score verbessern: Was wirklich hilft (und was nicht)" } },
+  { s: "Ich spare zusätzlich zur gesetzlichen Rente für das Alter vor.", article: { url: "altersvorsorge-3-saeulen.html", title: "Gesetzliche Rente reicht nicht: Die 3 Säulen der Altersvorsorge erklärt" } },
+  { s: "Ich habe geprüft, ob ich eine Berufsunfähigkeitsversicherung brauche.", article: { url: "berufsunfaehigkeitsversicherung.html", title: "Berufsunfähigkeitsversicherung: Worauf es wirklich ankommt" } },
+  { s: "Ich überprüfe regelmäßig meine laufenden Abos und Verträge.", article: { url: "abo-falle-vertraege-kuendigen.html", title: "Die Abo-Falle: Verträge kündigen und Geld sparen" } },
+  { s: "Ich weiß ungefähr, wie viel Kredit ich mir realistisch leisten kann.", article: { url: "immobilienfinanzierung-kreditrahmen.html", title: "Immobilienfinanzierung: Wie viel Kredit kann ich mir leisten?" } },
+  { s: "Ich habe geprüft, ob sich eine Steuererklärung für mich lohnt.", article: { url: "steuererklaerung-angestellte.html", title: "Steuererklärung für Angestellte: Diese Ausgaben kannst du absetzen" } }
+];
+
+let fcCurrent = 0;
+let fcAnswers = new Array(CHECK.length).fill(null);
+
+function startCheck() {
+  document.getElementById('fcStart').classList.remove('active');
+  document.getElementById('fcQuestions').classList.add('active');
+  renderStatement();
+}
+
+function renderStatement() {
+  const item = CHECK[fcCurrent];
+  document.getElementById('fcProgress').textContent = `Aussage ${fcCurrent + 1} von ${CHECK.length}`;
+  document.getElementById('fcStatementText').textContent = item.s;
+  const yesBtn = document.getElementById('fcYesBtn');
+  const noBtn = document.getElementById('fcNoBtn');
+  yesBtn.className = 'fc-choice' + (fcAnswers[fcCurrent] === true ? ' selected-yes' : '');
+  noBtn.className = 'fc-choice' + (fcAnswers[fcCurrent] === false ? ' selected-no' : '');
+  document.getElementById('fcPrevBtn').style.visibility = fcCurrent === 0 ? 'hidden' : 'visible';
+  document.getElementById('fcNextBtn').textContent = fcCurrent === CHECK.length - 1 ? 'Ergebnis anzeigen' : 'Weiter →';
+  document.getElementById('fcNextBtn').disabled = fcAnswers[fcCurrent] === null;
+}
+
+function selectAnswer(val) {
+  fcAnswers[fcCurrent] = val;
+  renderStatement();
+}
+
+function nextStatement() {
+  if (fcCurrent < CHECK.length - 1) {
+    fcCurrent++;
+    renderStatement();
+  } else {
+    showCheckResult();
+  }
+}
+
+function prevStatement() {
+  if (fcCurrent > 0) {
+    fcCurrent--;
+    renderStatement();
+  }
+}
+
+function showCheckResult() {
+  document.getElementById('fcQuestions').classList.remove('active');
+  document.getElementById('fcResult').classList.add('active');
+
+  let score = 0;
+  const openTopics = [];
+  CHECK.forEach((item, i) => {
+    if (fcAnswers[i] === true) score++;
+    else openTopics.push(item.article);
+  });
+
+  document.getElementById('fcScore').textContent = `${score} / ${CHECK.length}`;
+
+  let tier, message;
+  if (score === CHECK.length) {
+    tier = "Sehr gut aufgestellt";
+    message = "Beeindruckend — bei dir ist schon fast alles abgedeckt. Vielleicht trotzdem interessant zum Vertiefen:";
+  } else if (score >= CHECK.length - 2) {
+    tier = "Solide aufgestellt";
+    message = "Du hast die wichtigsten Grundlagen bereits im Griff. Diese Themen könntest du noch ergänzen:";
+  } else if (score >= CHECK.length / 2) {
+    tier = "Auf dem richtigen Weg";
+    message = "Ein guter Ausgangspunkt — diese Themen bringen dich am schnellsten weiter:";
+  } else {
+    tier = "Hier lohnt sich ein Blick";
+    message = "Kein Grund zur Sorge — hier sind die Themen, mit denen du am meisten Wirkung erzielst:";
+  }
+  document.getElementById('fcTier').textContent = tier;
+  document.getElementById('fcMessage').textContent = message;
+
+  const recsToShow = openTopics.length > 0 ? openTopics : [CHECK[0].article, CHECK[3].article];
+  document.getElementById('fcRecs').innerHTML = recsToShow.map(a => `
+    <a class="fc-rec-card" href="${a.url}"><strong>${a.title}</strong></a>
+  `).join('');
+}
+</script>
+<script src="search-data.js"></script>
+<script src="search.js"></script>
+<script src="site.js"></script>
+</body>
+</html>
